@@ -1,90 +1,63 @@
 package ex01;
-import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class main {
-
     public static void main(String[] args) {
 
+        Scanner leitor = new Scanner(System.in);
 
-       Scanner leitor = new Scanner(System.in);
+        int menu;
         
-       int opcao;
+        do {
+            System.out.println("--- Calculadora ---\n");
+            System.out.println("[1] Calcular");
+            System.out.println("[2] Sair");
+            System.out.print("Informe a opção desejada: ");
+            menu = Integer.parseInt(leitor.nextLine());
 
-       do{
-
-        System.out.println("-- Calculadora --");
-            System.out.println("[1] - Calcular");
-            System.out.println("[2] - Sair");
-            System.out.println("Informe a opção desejada: ");
-            opcao = Integer.parseInt(leitor.nextLine());
-
-            switch(opcao){
+            switch (menu) {
                 case 1:
-                    System.out.println("Opção Calcular selecionada com sucesso");
-
-                    System.out.println("Informe primeiro número: ");
-                    int a = Integer.parseInt(leitor.nextLine());
-
-                    System.out.println("Informe segundo número: ");
-                    int b = Integer.parseInt(leitor.nextLine());
-
-                    System.out.println("-- Operações --\n Soma\n Subtração\n Multiplicação\n Divisão\n Informe a opção desejada: ");
-
-
-                    String operacao = leitor.nextLine();
-
-
-                        switch(operacao) {                          
-
-                            case "Soma":
-                                System.out.println("A soma dos números é: " + (a + b));
-
-                                break;
-
-                            case "subtracao":
-                                System.out.println("A subtração dos números é: " + (a - b));
-
-                                break;
-
-                            case "multiplicacao":
-                                System.out.println("A multiplicação dos números é: " + (a * b));
-
-                                break;
-
-                            case "divisao":
-                                System.out.println("A div dos números é: " + (a / b));
-
-                                break;
-
-                        }
-
-            
-                    case 2:
-                    System.out.println("Saindo...");
+                System.out.println("Informe um número: ");
+                double a = Double.parseDouble(leitor.nextLine());
+        
+                System.out.println("Informe a operação: ");
+                String opcao = leitor.nextLine();
+        
+                System.out.println("Informe um número: ");
+                double b = Double.parseDouble(leitor.nextLine());
+        
+                switch(opcao){
+                    case "+":
+                        calculadora.Soma(a,b);
                     break;
-                    
+        
+                    case "-":
+                        calculadora.Subtracao(a,b);
+                    break;
+        
+                    case "*":
+                        calculadora.Multiplicacao(a,b);
+                    break;
+        
+                    case "/":
+                        calculadora.Divisao(a,b);
+                    break;
+
                     default:
-                        System.out.println("Opção inválida. Por favor escolha novamente.");
-                        break;
+                        System.out.println("> Operação não encontrada!");
+                    break;
+                }
+                break;
 
-    
-                    }   
+                case 2:
+                break;
             
-
-            } while (opcao != 2);
+                default:
+                    System.out.println("> Opção inválida!");
+                break;
+            }
+        } while (menu != 2);
 
     
-       
-
     }
-
 }
-
-
-
-
-

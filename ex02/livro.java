@@ -1,77 +1,59 @@
 package ex02;
 import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class livro {
+    String titulo;
+    String autor;
+    String ano;
 
+    livro (String titulo, String autor, String ano){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.ano = ano;
+    }
 
-    private String nomeLivro;
-    private String nomeAutor;
-    private String AnoPublicacao;
+    static List<livro> biblioteca = new ArrayList<>();
 
+    static void RegistrarLivros(){
 
-            public livro(String nome, String autor, String ano){
+        Scanner leitor = new Scanner(System.in);
+        
+        System.out.print("Informe a quantidade de livros a ser inserida: ");
+        int quantInsert = Integer.parseInt(leitor.nextLine());
 
-                this.nomeLivro = nome;
-                this.nomeAutor = autor;
-                this.AnoPublicacao = ano;
-            } 
-            
-            static List<livro> Livro  = new ArrayList<>();
+        for(int i = 0; i < quantInsert; i++){
+            System.out.println("Informe o nome do Livro: ");
+            String titulo = leitor.nextLine();
 
+            System.out.println("Informe o autor do Livro: ");
+            String autor = leitor.nextLine();
 
-            static void RegistrarNaBiblioteca(){
+            System.out.println("Informe o ano de publicação do Livro (DD/MM/AAAA): ");
+            String ano = leitor.nextLine();
+            System.out.println();
 
-                Scanner leitor = new Scanner(System.in);
-
-                System.out.println("Quantidade de Livros: ");
-                int quantidade = Integer.parseInt(leitor.nextLine());
-          
-                for(int i = 0; i < quantidade; i++){
-
-                    System.out.println("Informe o Nome do Livro: ");
-                    String nomeLivro = leitor.nextLine();
-
-                    System.out.println("Informe o Nome do Autor: ");
-                    String nomeAutor = leitor.nextLine();
-
-                    System.out.println("Informe o Ano de Publicação: ");
-                    String AnoPublicacao = leitor.nextLine();
-
-                    Livro.add(new livro(nomeLivro, nomeAutor, AnoPublicacao));
-
-            }
-
+            biblioteca.add(new livro(titulo, autor, ano));
         }
 
-            public static void ExibirLivro(){
+        
+    }
 
-                System.out.println("----- Bem-Vindo à Biblioteca -----");  
+    static void ExibirLivros(){
 
-                if (Livro.isEmpty()) {
-                    System.out.println("Nenhum Livro Cadastrado");
-                } else {
-                    System.out.println("-----Livros Cadastrados ------\n");
-                    for (livro livro : Livro) {
-                       
-                        System.out.println("- Nome do Livro: " + livro.nomeLivro);
+        System.out.println("\n---Informações da Biblioteca---");
 
-                        System.out.println("- Nome do Autor: " + livro.nomeAutor);
-
-                        System.out.println("- Ano de Publicação: " + livro.AnoPublicacao);
-
-                        System.out.println("-------------------------------------");
-
-                    }
-                    
-                }
-                    
+        if(biblioteca.isEmpty()){
+            System.out.println("- A bibliotecca está vazia!\n");
+        }else{
+            for(livro livro : biblioteca){
+                System.out.println("- Nome da obra: " + livro.titulo);
+                System.out.println("- Autor: " + livro.autor);
+                System.out.println("- Ano de publicação: "+ livro.ano);
+                System.out.println();
             }
-
+        }
+              
+    }
 }
-    
-  
