@@ -21,17 +21,24 @@ public class Carro {
 
     
     public void acelerar(int aceleracao) {
+
         if (aceleracao > 0) {
+
             this.velocidadeAtual += aceleracao;
             System.out.println("Carro acelerando... Velocidade atual: " + this.velocidadeAtual + " km/h");
+
         } else {
+
             System.out.println("A aceleração de velocidade deve ser maior que zero.");
+
         }
     }
 
    
     public void frear(int desaceleracao) {
+
         if (desaceleracao > 0 && desaceleracao <= this.velocidadeAtual) {
+            
             this.velocidadeAtual -= desaceleracao;
 
             System.out.println("Carro freando.... Velocidade atual: " + this.velocidadeAtual + " km/h");

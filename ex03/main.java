@@ -21,14 +21,10 @@ public class main {
         
         do{
         
-        System.out.println("-- Informações --");
-        
-        System.out.println(" Banco ");
-        
-        System.out.println("[1] Informações"); 
-        
-        System.out.println("[2] Sair");
-        
+        System.out.println("-- Informações --");   
+        System.out.println(" Banco ");    
+        System.out.println("[1] Informações");  
+        System.out.println("[2] Sair");  
         System.out.println( "Informe a opção desejada: ");
         
         opcao = Integer.parseInt(leitor.nextLine());
@@ -63,34 +59,57 @@ public class main {
                             opcao1 = Integer.parseInt(leitor.nextLine());
             
                             switch (opcao1) {
+
                                 case 1:
+
                                     System.out.println("Informe o valor do depósito:");
                                     double valorDeposito = Double.parseDouble(leitor.nextLine());
                                     Conta.DepositoNaConta(valorDeposito);
+
                                     break;
+
                                 case 2:
+
                                     System.out.println("Informe o valor que deseja sacar:");
                                     double valorSaque = Double.parseDouble(leitor.nextLine());
                                     Conta.SacarDaConta(valorSaque);
+
                                     break;
+
                                 case 3:
+
                                     Conta.SaldoNaConta();
+
                                     break;
+
                                 case 4:
                                     break;
+
                                 default:
                                     System.out.println("Opção inválida");
+
                             }
+
                         } while (opcao1 != 4);
+
                     } else {
+
                         System.out.println("Conta não encontrada.");
+
                     }
-                    break;
+                
                 case 2:
+
                     System.out.println("Saindo...");
+
                     break;
+
                 default:
+
                     System.out.println("Opção inválida");
+                    
+                    break;
+
             }
         } while (opcao != 2);
     }

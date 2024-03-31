@@ -8,9 +8,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-       
+        Scanner scanner = new Scanner(System.in);
 
          Carro carro1 = new Carro("Chevrolet", "Onix", 2017, "A4NS23");
 

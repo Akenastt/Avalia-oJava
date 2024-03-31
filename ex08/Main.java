@@ -59,31 +59,44 @@ public class Main {
             opcao = Integer.parseInt(leitor.nextLine());
 
             switch (opcao) {
+
                 case 1:
+
                     Pizza.MenuDasPizzas(Pizzas);
+
                 break;
 
                 case 2:
+
                     Pedido.AdicionarPedido(Pedidos, Pizzas);
+
                 break;
 
                 case 3:
+
                     Pedido.InformacaoDoPedido(Pedidos);
+
                 break;
 
                 case 4:
+
                     Pedido.CancelamentoDoPedido(Pedidos);
+
                 break;
 
                 case 5:
+
                     Pedido.RelatorioDosPedidos(Pedidos);
+
                 break;
 
                 case 0:
                 break;
             
                 default:
+
                     System.out.println("> Opção inválida!");
+                    
                 break;
             }
 

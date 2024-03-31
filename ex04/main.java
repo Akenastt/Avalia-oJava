@@ -28,6 +28,7 @@ public class main {
         int opcao;
 
         do {
+
             System.out.println("\n--- Escolha uma opção: ---\n");
             System.out.println("[1] Mostrar jogadores");
             System.out.println("[2] Informações do Jogador");
@@ -54,9 +55,11 @@ public class main {
                     System.out.println("Informações do jogador:");
 
                     for (Jogador jogador : jogadores) {
+
                         System.out.println("\nNome: " + jogador.getNome());
                         System.out.println("Pontuação: " + jogador.getPontuacao());
                         System.out.println("Nível: " + jogador.getNivel());
+
                     }
                     break;
 
@@ -71,12 +74,17 @@ public class main {
                     leitor.nextLine(); 
 
                     for (Jogador jogador : jogadores) {
+
                         if (jogador.getNome().equals(nomeJogador)) {
+
                             jogador.setNivel(novoNivel);
                             System.out.println("Nível atualizado com sucesso!");
+
                             break;
+
                         }
                     }
+
                     break;
 
                 case 4:
@@ -90,9 +98,12 @@ public class main {
                     leitor.nextLine(); 
 
                     for (Jogador jogador : jogadores) {
+
                         if (jogador.getNome().equals(nomeJogadorPontuacao)) {
+
                             jogador.aumentarPontuacao(pontos);
                             System.out.println("Pontuação atualizada com sucesso!");
+
                             break;
                         }
                     }
@@ -101,11 +112,14 @@ public class main {
                 case 5:
 
                     System.out.println("Programa encerrado");
+
                     break;
 
                 default:
 
                     System.out.println("Opção inválida");
+                    
+                    break;
 
             }
 

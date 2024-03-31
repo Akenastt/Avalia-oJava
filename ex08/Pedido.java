@@ -12,11 +12,13 @@ public class Pedido {
     private String endereco;
 
     Pedido(int numPedido, String sabor, String tamanho, double preco, String endereco){
+
         this.numPedido = numPedido;
         this.sabor = sabor;
         this.tamanho = tamanho;
         this.preco = preco;
-        this.endereco = endereco;    
+        this.endereco = endereco; 
+           
     }
 
     static Scanner leitor = new Scanner(System.in);
@@ -31,8 +33,11 @@ public class Pedido {
         String sabor = leitor.nextLine();
 
         for (Pizza pizza : Pizzas) {
+
             if (sabor.equalsIgnoreCase(pizza.getNomeSabor())) {
+
                 preco = pizza.getPrecoSabor();
+
             }
         }
             
@@ -47,20 +52,28 @@ public class Pedido {
         int opTamanho = Integer.parseInt(leitor.nextLine());
 
         if (opTamanho >= 1 && opTamanho <= 3) {
+
             switch (opTamanho) {
+
                 case 1:
+
                     tamanho = "Pequeno";
                     preco += 25;
+
                 break;
 
                 case 2:
+
                     tamanho = "Médio";
-                    preco += 35; 
+                    preco += 35;
+
                 break;
 
                 case 3:
+
                     tamanho = "Grande";
                     preco += 45;
+
                 break;
             
                 default:
@@ -75,23 +88,33 @@ public class Pedido {
     }
 
     String getSabor(){
+
         return this.sabor;
+
     }
 
     String getTamanho(){
+
         return this.tamanho;
+
     }
 
     double getPreco(){
+
         return this.preco;
+
     }
 
     String getEndereco(){
+
         return this.endereco;
+
     }
 
     int getNumPedido(){
+
         return this.numPedido;
+
     }
 
      static void InformacaoDoPedido(List<Pedido> Pedidos){
@@ -102,11 +125,14 @@ public class Pedido {
         int idPedido = Integer.parseInt(leitor.nextLine());
 
         for (Pedido pedido : Pedidos) {
+
             if (idPedido == pedido.numPedido) {
+
                 System.out.println("Sabor: " + pedido.getSabor());
                 System.out.println("Tamanho: " + pedido.getTamanho());
                 System.out.println("Preço: " + pedido.getPreco());
                 System.out.println("Endereço: " + pedido.getEndereco());
+
             }
         }
     }
@@ -119,9 +145,12 @@ public class Pedido {
         int idPedido = Integer.parseInt(leitor.nextLine());
 
         for (Pedido pedido : Pedidos) {
+
             if (idPedido == pedido.getNumPedido()) {
+
                 Pedidos.remove(pedido);
                 System.out.println("> Pedido de número " + pedido.getNumPedido() + " foi CANCELADO COM SUCESSO!");
+
                 break;
             }
         }
@@ -132,7 +161,9 @@ public class Pedido {
         double mediaPizzas = 0;
 
         for (Pedido pedido : Pedidos) {
+
             mediaPizzas += pedido.getPreco();
+
         }
 
         return (mediaPizzas / Pedidos.size());
@@ -146,7 +177,9 @@ public class Pedido {
         System.out.println("|      Sabor          |     Tamanho     |     Preço      |                  Endereço                           |   Num. do pedido |");
         System.out.println("|                     |                 |                |                                                     |                  |");
         for (Pedido pedido : Pedidos) {
+
             System.out.printf("| %-19s | %-15s | R$ %-10.2f | %-50s | %-15d |\n", pedido.getSabor(), pedido.getTamanho(), pedido.getPreco(), pedido.getEndereco(), pedido.getNumPedido());
+
         }
         System.out.println("|                     |                 |                |                                                     |                  |");
 
